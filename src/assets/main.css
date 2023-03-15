@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*:before,
+*:after {
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway';
+  background-color: #E9D4AC;
+}
+
+
+a{
+  text-decoration:none;
+}
+
+img{
+  max-width: fit-content;
+  display: block;
+}
+
+main{
+  flex: 1 1 auto;
+}
+
+
+.footerToBottom{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.paymentinp{
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.paymentinp:focus{
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
+  background-color: rgba(255, 255, 255, 0.75);
+}
