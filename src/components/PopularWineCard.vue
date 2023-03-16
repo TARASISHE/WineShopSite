@@ -9,7 +9,7 @@
       <p class="text-md max-w-[150px] text-center">
         {{ popularWines.name }}
       </p>
-      <p class="italic">
+      <p class="italic py-2">
         {{ popularWines.price }}₴
       </p>
     </div>
