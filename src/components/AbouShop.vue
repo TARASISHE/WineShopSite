@@ -7,7 +7,7 @@
       <div class="relative w-[500px] sm:w-[375px] xs:w-[360px]">
         <YouTube 
           ref="youtube" 
-          src="https://www.youtube.com/embed/z7_mScx-Waw?controls=1?"
+          src="https://www.youtube.com/embed/z7_mScx-Waw?"
           style="width: 100%;"
           width="100%"
           height="300"
