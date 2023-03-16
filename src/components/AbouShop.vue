@@ -17,11 +17,10 @@
           v-if="banner"
           class="w-full h-[300px] absolute top-0 left-0 z-40"
           src="https://winewine.com.ua/wp-content/uploads/2020/10/winewine-video.png"
-          @click="hideBanner()"
         >
         <font-awesome-icon
           v-if="banner"
-          class="absolute top-[50%] left-[50%] text-[#fff] w-10 h-10 z-50"
+          class="absolute top-[50%] left-[50%] text-[#fff] w-10 h-10 z-50 cursor-pointer"
           icon="fa-solid fa-circle-play"
           @click="hideBanner()"
         /> 
