@@ -4,7 +4,7 @@
       <img
         :src="popularWines.img"
         :alt="popularWines.name"
-        class="max-w-fit w-40 h-40 sm:h-3/4 xs:h-3/5 sm:w-[150px] xs:w-[75px]"
+        class="w-full h-40 rounded sm:h-full xs:h-full  sm:w-[150px] xs:w-[100px]"
       >
       <p class="text-md max-w-[150px] text-center">
         {{ popularWines.name }}
