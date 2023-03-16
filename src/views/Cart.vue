@@ -14,9 +14,9 @@
           sm:flex-col sm:gap-4   
           xs:flex-col xs:gap-2"
       >
-        <div class="flex flex-row items-center justify-center xs:flex-col sm:h-[600px] xs:h-[500px]">
+        <div class="flex flex-row items-center justify-center xs:flex-col sm:h-[400px] xs:h-[300px]">
           <img
-            class="w-full h-40 rounded sm:h-[75%] xs:h-[50%]  sm:w-[300px] xs:w-[250px]"
+            class="w-full h-40 rounded sm:h-full xs:h-full  sm:w-[150px] xs:w-[100px]"
             :src="wine.img"
             :alt="wine.title"
           >
