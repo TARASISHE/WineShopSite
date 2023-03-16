@@ -2,7 +2,7 @@
   <h1 class="mt-10 text-center text-2xl font-semibold dark:text-text-color">
     Popular products
   </h1>
-  <div class="flex items-center justify-center gap-4 mt-4 flex-wrap">
+  <div class="flex items-center justify-center gap-10 mt-4 flex-wrap">
     <PopularWineCard
       v-for="popularWine in wineCards"
       :key="popularWine.id"
