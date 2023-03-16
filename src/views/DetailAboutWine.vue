@@ -6,9 +6,9 @@
   >
     <div class="flex w-full items-center justify-center">
       <div class="flex w-full items-center justify-center  sm:gap-2 xs:gap-2 sm:flex-col xs:flex-col">
-        <div class="w-[40%] h-1/3 flex items-center justify-center sm:justify-center xs:justify-center sm:w-[300px] sm:h-full xs:w-[350px] xs:h-full">
+        <div class="w-[40%] h-1/3 flex items-center justify-center sm:justify-center xs:justify-center sm:w-[300px] sm:h-full xs:w-[300px] xs:h-full">
           <img
-            class="w-[50%] h-1/3 sm:w-[300px] sm:h-[300px] xs:w-[200px] xs:h-[300px]"
+            class="w-[50%] h-1/3 sm:w-[300px] sm:h-[300px] xs:w-[150px] xs:h-[300px]"
             :src="wine.img"
             :alt="wine.name"
           >
