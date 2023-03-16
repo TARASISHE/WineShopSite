@@ -2,7 +2,7 @@
   <main class="mt-20">
     <SliderCarousel
       :carousel-data="sliderItems"
-      :interval="5000"
+      :interval="3000"
     />
     <PopularWines
       :wine-cards="popularVinesToShow"

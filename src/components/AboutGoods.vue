@@ -2,7 +2,7 @@
   <div class="wrapper px-4">
     <div class="flex items-center justify-center gap-8 h-full md:flex-col sm:flex-col xs:flex-col">
       <div class="max-w-sm mt-10 text-center">
-        <h3 class="text-xl dark:text-text-color ">WHAT KIND OF PRODUCT DO I HAVE?</h3>
+        <h3 class="text-xl dark:text-text-color sm:text-xl xs:text-lg">WHAT KIND OF PRODUCT DO I HAVE?</h3>
         <p class="my-4 dark:text-text-color">
           WINE WINE is a signature store of Bayadera. Therefore, my product is a licensed beverage officially imported to Ukraine.
         </p>
@@ -20,7 +20,7 @@
         >
       </div>
       <div class="max-w-sm text-center">
-        <h3 class="text-xl dark:text-text-color">MY ASSORTMENT</h3>
+        <h3 class="text-xl dark:text-text-color sm:text-xl xs:text-lg ">MY ASSORTMENT</h3>
         <p class="my-4 dark:text-text-color ">
           I am proud of every bottle I brought, even if it costs 100 hryvnias, because every bottle is a worthy sample in its weight category.
         </p>

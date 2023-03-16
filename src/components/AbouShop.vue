@@ -1,13 +1,13 @@
 <template>
   <div class="wrapper bg-[#F2F2F2] pb-8 dark:bg-darkmode-medium">
-    <h1 class="text-center text-dark text-2xl font-semibold my-10 pt-4 dark:text-text-color">
+    <h1 class="text-center text-dark text-2xl font-semibold my-10 pt-4 dark:text-text-color sm:text-xl xs:text-lg sm:my-5 xs:my-5 ">
       WHAT KIND OF WINE SHOP AM I?
     </h1>
     <div class="flex items-center justify-center gap-4 px-2 md:flex-col sm:flex-col xs:flex-col">
       <div class="relative w-[500px] sm:w-[375px] xs:w-[360px]">
         <YouTube 
           ref="youtube" 
-          src="https://www.youtube.com/embed/z7_mScx-Waw?controls=1?autoplay=0"
+          src="https://www.youtube.com/embed/z7_mScx-Waw?controls=1?"
           style="width: 100%;"
           width="100%"
           height="300"

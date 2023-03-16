@@ -9,12 +9,12 @@
         >Telegram <span><font-awesome-icon class="ml-2 mt-1" icon="fa-brands fa-telegram" /></span> </a>
         <a
           class="flex items-center my-3"
-          href="”tel:+380660775955”"
+          href="tel:+380660775955"
         >+38 (066) 077-59-55 <span> <font-awesome-icon
           class="ml-2 mt-1"
           icon="fa-solid fa-phone"
         /></span></a>
-        <p class="flex  items-center">taras.malchenko@gmail.com <span><font-awesome-icon class="ml-2 mt-1" icon="fa-solid fa-envelope" /></span> </p>
+        <p class="flex  items-center"><a href="https://mail.google.com/mail/u/0/#inbox?compose=new"> taras.malchenko@gmail.com</a><span><font-awesome-icon class="ml-2 mt-1" icon="fa-solid fa-envelope" /></span> </p>
       </div>
       <div>
         <p class="flex items-center justify-center p-2 w-full border-t-2 border-dark mt-3 dark:text-text-color dark:border-darkmode-medium">

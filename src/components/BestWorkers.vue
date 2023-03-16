@@ -1,5 +1,5 @@
 <template>
-  <h1 class="mt-10 text-center text-2xl font-semibold px-4 dark:text-text-color">
+  <h1 class="mt-10 text-center text-2xl font-semibold px-4 dark:text-text-color sm:text-xl xs:text-lg sm:mt-5 xs:mt-5 ">
     Best Workers of the Month
   </h1>
   <div class="flex items-center justify-center gap-4 mt-4 flex-wrap px-4">

@@ -24,7 +24,7 @@
       </div>
       <div>
         <div class="max-w-4xl text-center ">
-          <h3 class="text-2xl dark:text-text-color">What is interesting about me?</h3>
+          <h3 class="text-2xl dark:text-text-color sm:text-xl xs:text-lg">What is interesting about me?</h3>
           <p class="text-[#888888] my-4 dark:text-text-color"> The TaraWine store is, first and foremost, a good range of affordable everyday wines. But I also have special and rare wines:</p>
           <ul class="text-sm dark:text-text-color" >
             <li>orange wine (orange wines are white wines made by "red technology" with aging on skins")</li>
@@ -33,7 +33,7 @@
             <li>highly rated gift and collectible wines</li>
             <li>vintage port wines</li>
           </ul>
-          <p class="text-[#888888] my-4 dark:text-text-color">As well as wines that are rare to find:</p>
+          <p class="text-[#888888] my-4 dark:text-text-color sm:text-xl xs:text-lg ">As well as wines that are rare to find:</p>
           <ul class="text-sm dark:text-text-color">
             <li>Barolo Kinato</li>
             <li>rare sherries</li>

@@ -1,17 +1,17 @@
 <template>
-    <div class="spinner_wrapper">
-        <img
+  <div class="spinner_wrapper">
+    <img
       class="spinner"
       src="../assets/img/spinner-svgrepo-com.svg"
       alt=""
     >
-    </div>
-  </template>
+  </div>
+</template>
   
-  <script setup>
+<script setup>
   
   
-  </script>
+</script>
   
   <style scoped>
 
@@ -64,9 +64,11 @@
       stroke-dashoffset: -124;
     }
   }
-  @media screen and (max-width:470px){
+  @media screen and (max-width:767px){
     .spinner{
       top: 30%;
+      width: 25px;
+      height: 25px;
     }
   }
   

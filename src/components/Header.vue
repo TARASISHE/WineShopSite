@@ -9,9 +9,9 @@
       </div>
       <div class="flex gap-6 items-center font-medium text-text-color sm:hidden xs:hidden">
         <router-link  
-          class="relative"
           v-for="link in links"
           :key="link.name"
+          class="relative"
           :to="link.to"
         >
           {{ link.name }}
@@ -24,7 +24,8 @@
         </router-link>
         <font-awesome-icon
           v-if="!isDark"
-          icon="fa-solid fa-sun"
+          class="ml-2"
+          icon="fa-solid fa-lightbulb"
           @click="toggleDark()"
         />
         <font-awesome-icon
@@ -40,7 +41,10 @@
         <routerLink to="/catologue">
           <font-awesome-icon icon="fa-solid fa-book-open-reader" />
         </routerLink>
-        <routerLink to="/cart" class="relative">
+        <routerLink
+          to="/cart"
+          class="relative"
+        >
           <font-awesome-icon icon="fa-solid fa-cart-shopping" />
           <span
             v-if="WineStore.cartWines.length" 
@@ -54,7 +58,7 @@
         </routerLink>
         <font-awesome-icon
           v-if="!isDark"
-          icon="fa-solid fa-sun"
+          icon="fa-solid fa-lightbulb"
           @click="toggleDark()"
         />
         <font-awesome-icon
@@ -78,9 +82,6 @@ const isDark = useDark({});
 const toggleDark = useToggle(isDark);
 
 const links = ref([
-  {
-    name: 'Home', to: '/'
-  },
   {
     name: 'Catologue', to: '/catologue'
   },

@@ -16,7 +16,7 @@
       >
         <div class="flex flex-row items-center justify-center xs:flex-col">
           <img
-            class="w-full h-40 rounded"
+            class="w-full h-40 rounded sm:h-[500px] xs:h-[400px]"
             :src="wine.img"
             :alt="wine.title"
           >
@@ -27,13 +27,19 @@
           </p>
         </div>
         <div class="flex flex-row items-center justify-center px-4 dark:text-text-color">
-          <button @click="WineStore.incrementQ(wine)">
+          <button
+            class="text-2xl p-2"
+            @click="WineStore.incrementQ(wine)"
+          >
             +
           </button>
           <p class="px-4">
             {{ wine.quantity }}
           </p>
-          <button @click="WineStore.decrementQ(wine)">
+          <button
+            class="text-2xl p-2"
+            @click="WineStore.decrementQ(wine)"
+          >
             -
           </button>
         </div>
