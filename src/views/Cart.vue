@@ -16,7 +16,7 @@
       >
         <div class="flex flex-row items-center justify-center xs:flex-col">
           <img
-            class="w-full h-40 rounded sm:h-[500px] xs:h-[400px]"
+            class="w-full h-40 rounded sm:h-[500px] xs:h-[500px]"
             :src="wine.img"
             :alt="wine.title"
           >
