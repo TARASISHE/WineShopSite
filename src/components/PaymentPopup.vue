@@ -12,7 +12,7 @@
         icon="fa-solid fa-circle-xmark"
       />
     </InformationAboutPayment>
-    <div class=" px-2 bg-[#F2F2F2] w-1/2 h-[500px] z-[501] rounded-xl flex flex-col items-center justify-center sm:left-[15%] sm:w-[500px] sm:h-[400px] xs:w-[310px] xs:h-[300px]">
+    <div class="relative px-2 bg-[#F2F2F2] w-1/2 h-[500px] z-[501] rounded-xl flex flex-col items-center justify-center sm:left-[15%] sm:w-[500px] sm:h-[400px] xs:w-[310px] xs:h-[300px]">
       <div class="flex flex-col items-center justify-center gap-5">
         <h2 class="text-xl font-semibold sm:text-lg xs:text-lg">
           Payment information
@@ -37,10 +37,14 @@
         </button>
         <p class="text-[#D0312D] font-semibold max-w-[200px] text-center">{{ error }}</p>
         <button
+          v-if="!paymentLoading"
           class="w-48 border-[1px]  rounded-md py-3 mt-2 font-semibold  duration-300 transition-all hover:bg-[#999DA0] hover:border-[#999DA0] sm:w-40 xs:w-32"
           @click="addOrder()"
         >
           Pay
+        </button>
+        <button v-if="paymentLoading" class="w-48 border-[1px] flex items-center justify-center  rounded-md py-3 mt-2 font-semibold  duration-300 transition-all hover:bg-[#999DA0] hover:border-[#999DA0] sm:w-40 xs:w-32">
+          <img class="loading" src="../assets/img/spinner-svgrepo-com.svg" alt="">
         </button>
       </div>
     </div>
@@ -68,11 +72,14 @@ const userPhone = ref('');
 const succesedPayment = ref(false);
 const failurePayment = ref(false);
 const error = ref('');
+const paymentLoading = ref(false)
 
 const showSuccesedPayment = ()=>{
   succesedPayment.value = true;
+  paymentLoading.value = true;
   setTimeout(()=>{
     succesedPayment.value = false;
+    paymentLoading.value = false;
     props.closePopup();
   }, 2000);
 };
@@ -87,14 +94,18 @@ const showFailurePayment = ()=>{
 
 const addOrder = async ()=>{
   try {
+    paymentLoading.value = true;
     if (userName.value.length < 3){
       error.value = 'Your name is to short';
+      succesedPayment.value = false;
     }
     if (!userName.value.length && !userPhone.value.length){
       error.value = 'You need to enter your information';
+      succesedPayment.value = false;
     }
     if ( userPhone.value.length < 10){
       error.value = 'Incorrect phone number';
+      succesedPayment.value = false;
     }
     const wineNames = Object.values(WineStore.cartWines).map(el =>`${el.quantity} - ` + `${el.name}`).join(', ');
     if (userName.value.length > 3 && userPhone.value.length >= 6 ){
@@ -104,14 +115,12 @@ const addOrder = async ()=>{
         ordername: wineNames,
         price: WineStore.cartWines.reduce((acc, item) => acc += item.price * item.quantity, 0)
       });
-      userName.value = '';
-      userPhone.value = '';
       showSuccesedPayment();
     }
   } catch (err){
     console.log(err);
     showFailurePayment();
-  }
+  } 
 };
 
 </script>
@@ -135,4 +144,43 @@ const addOrder = async ()=>{
     top: 10px;
     right: 15px;
   }
+
+  .btn-loading{
+
+  }
+
+  .loading {
+  animation: rotate 2s linear infinite;
+  width: 30px;
+  height: 30px;
+  color: aliceblue;
+}
+  .path {
+    stroke: rgb(0, 116, 232);
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+}
+
+
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
 </style>
