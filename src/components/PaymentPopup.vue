@@ -72,7 +72,7 @@ const userPhone = ref('');
 const succesedPayment = ref(false);
 const failurePayment = ref(false);
 const error = ref('');
-const paymentLoading = ref(false)
+const paymentLoading = ref(false);
 
 const showSuccesedPayment = ()=>{
   succesedPayment.value = true;
@@ -97,15 +97,15 @@ const addOrder = async ()=>{
     paymentLoading.value = true;
     if (userName.value.length < 3){
       error.value = 'Your name is to short';
-      succesedPayment.value = false;
-    }
-    if (!userName.value.length && !userPhone.value.length){
-      error.value = 'You need to enter your information';
-      succesedPayment.value = false;
+      paymentLoading.value = false;
     }
     if ( userPhone.value.length < 10){
       error.value = 'Incorrect phone number';
-      succesedPayment.value = false;
+      paymentLoading.value = false;
+    }
+    if (!userName.value.length && !userPhone.value.length){
+      error.value = 'You need to enter your information';
+      paymentLoading.value = false;
     }
     const wineNames = Object.values(WineStore.cartWines).map(el =>`${el.quantity} - ` + `${el.name}`).join(', ');
     if (userName.value.length > 3 && userPhone.value.length >= 6 ){
@@ -143,10 +143,6 @@ const addOrder = async ()=>{
     position: absolute;
     top: 10px;
     right: 15px;
-  }
-
-  .btn-loading{
-
   }
 
   .loading {
