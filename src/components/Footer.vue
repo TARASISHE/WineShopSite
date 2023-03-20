@@ -28,6 +28,4 @@
   </div>
 </template>
 
-<style>
 
-</style>

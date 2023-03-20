@@ -12,7 +12,7 @@
 defineProps({
   itemData: {
     type: Object,
-    default: ()=>{}
+    default: ()=>({})
   }
 });
 </script>

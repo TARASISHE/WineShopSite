@@ -37,12 +37,7 @@
     background-color: #FFF;
     border-radius: 50%;
   }
-    .path {
-      stroke: rgb(238, 241, 244);
-      stroke-linecap: round;
-      animation: dash 1.5s ease-in-out infinite;
-  }
-  
+ 
   
   @keyframes rotate {
     100% {
@@ -50,20 +45,6 @@
     }
   }
   
-  @keyframes dash {
-    0% {
-      stroke-dasharray: 1, 150;
-      stroke-dashoffset: 0;
-    }
-    50% {
-      stroke-dasharray: 90, 150;
-      stroke-dashoffset: -35;
-    }
-    100% {
-      stroke-dasharray: 90, 150;
-      stroke-dashoffset: -124;
-    }
-  }
   @media screen and (max-width:767px){
     .spinner{
       top: 30%;

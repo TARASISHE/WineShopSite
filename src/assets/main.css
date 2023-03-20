@@ -38,6 +38,10 @@ main{
   flex-direction: column;
 }
 
+.wrapper{
+  margin: 0 auto;
+}
+
 .paymentinp{
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
   background-color: rgba(255, 255, 255, 0.5);
@@ -46,4 +50,29 @@ main{
 .paymentinp:focus{
   box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
   background-color: rgba(255, 255, 255, 0.75);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+li{
+  padding: 5px 0px;
+}
+
+li::before{
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background: #888888;
+  border-radius: 100%;
+  margin-bottom: 2px;
+  margin-right: 10px;
 }

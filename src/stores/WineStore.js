@@ -1,12 +1,12 @@
 import { ref, computed, watch } from 'vue';
 import { defineStore } from 'pinia';
-import axios from 'axios';
+import { getWinesData } from '../api/api';
+
 
 export const useWineStore = defineStore('WineStore', () => {
   
   const cartWines = ref([]);
   const allWines = ref([]);
-  const spinner = ref(false);
 
   const countCartWines = computed(()=>{
     return cartWines.value.length;
@@ -19,15 +19,10 @@ export const useWineStore = defineStore('WineStore', () => {
 
   const getWines = async () =>{
     try {
-      spinner.value = true;
-      const response = await axios.get('https://my-json-server.typicode.com/TARASISHE/winedb/allWines');
-      const data = response.data;
-      allWines.value = data;
+      allWines.value = await getWinesData();
     } catch (err){
       console.log(err);
-    } finally {
-      spinner.value = false;
-    }
+    } 
   };
 
   const addToCart = (item) => {
@@ -86,7 +81,6 @@ export const useWineStore = defineStore('WineStore', () => {
     incrementQ,
     decrementQ,
     removeFromCart,
-    getWines,
-    spinner
+    getWines
   };
 });

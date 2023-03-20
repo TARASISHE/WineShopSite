@@ -37,7 +37,7 @@ defineProps({
 }
 
 .delete:hover{
-    opacity: 70%;
+  opacity: 70%;
  font-weight: 600;
 }
 

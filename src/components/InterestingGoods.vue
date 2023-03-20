@@ -63,20 +63,3 @@ const hideBanner = () =>{
 
 </script>
 
-<style scoped>
-
-li{
-  padding: 5px 0px;
-}
-
-li::before{
-  content: '';
-  display: inline-block;
-  width: 5px;
-  height: 5px;
-  background: #888888;
-  border-radius: 100%;
-  margin-bottom: 2px;
-  margin-right: 20px;
-}
-</style>

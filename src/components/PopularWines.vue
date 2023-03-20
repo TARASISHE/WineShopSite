@@ -19,10 +19,10 @@
 <script setup>
 import PopularWineCard from './PopularWineCard.vue';
 
-const props = defineProps({
+defineProps({
   wineCards: {
     type: Array,
-    default: ()=>[]
+    default: ()=>([])
   }
 });
 </script>

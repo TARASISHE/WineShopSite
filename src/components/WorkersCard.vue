@@ -21,13 +21,10 @@
     
 <script setup>
 
-
-
-  
 defineProps({
   worker: {
     type: Object,
-    default: ()=>{}
+    default: ()=>({})
   }
 });
 </script>

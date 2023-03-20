@@ -21,15 +21,9 @@ import WorkersCard from './WorkersCard.vue';
 defineProps({
   workerData: {
     type: Array,
-    default: ()=>[]
+    default: ()=>([])
   }
 });
 </script>
   
   
-  <style scoped>
-  .wrapper{
-    margin: 0 auto;
-  }
-  
-  </style>

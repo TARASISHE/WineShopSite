@@ -15,10 +15,10 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onBeforeMount, ref } from 'vue';
 import axios from 'axios';
 
-
+import { getBestWorkersData } from '../api/api';
 import BestWorkers from '../components/BestWorkers.vue';
 import InterestingGoods from '../components/InterestingGoods.vue';
 import AboutGoods from '../components/AboutGoods.vue';
@@ -51,11 +51,11 @@ const sliderItems = [
 const workersToShow = ref([]);
 
 const getWorkers = async () =>{
-  const resp = await axios.get('https://my-json-server.typicode.com/TARASISHE/wineWorkers/bestWorkersData');
-  workersToShow.value = resp.data;
+  await getBestWorkersData()
+  workersToShow.value = getBestWorkersData;
 }
 
-onMounted(()=>{
+onBeforeMount(()=>{
   getWorkers();
 });
 

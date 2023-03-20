@@ -47,12 +47,12 @@
           <p>₴{{ wine.price * wine.quantity }} </p>
         </div>
         <div>
-          <Button
+          <PrimaryButton
             btn-type="deleted"
             @click="WineStore.removeFromCart(wine)"
           >
             Delete
-          </Button>
+          </PrimaryButton>
         </div>
       </div>
       <div
@@ -64,7 +64,7 @@
         </p>
         <button
           class="w-48 bg-darkred rounded-md py-3 mt-2 font-semibold hover:bg-text-color duration-300 transition-all"
-          @click="togglePopup('buttonTrigger')"
+          @click="togglePopup('')"
         >
           Pay
         </button>
@@ -72,8 +72,8 @@
     </div>
     <Transition name="fade">
       <PaymentPopup
-        v-if="popupTriggers.buttonTrigger" 
-        :close-popup="()=> togglePopup('buttonTrigger')"
+        v-if="showPaymentPopup" 
+        :close-popup="()=> togglePopup()"
       />
     </Transition>
   </main>
@@ -81,38 +81,26 @@
   
 <script setup>
   
-import Button from '../components/Button.vue';
 import { useWineStore } from '../stores/WineStore.js';
-import PaymentPopup from '../components/PaymentPopup.vue';
 import { ref } from 'vue';
+
+import PaymentPopup from '../components/PaymentPopup.vue';
+import PrimaryButton from '../components/PrimaryButton.vue';
 
 
 const WineStore = useWineStore();
 
-const popupTriggers = ref({
-  buttonTrigger: false
-});
-
-const togglePopup = (trigger)=>{
-  popupTriggers.value[trigger] = !popupTriggers.value[trigger];
+const showPaymentPopup = ref(false);
+const togglePopup = ()=>{
+  showPaymentPopup.value = !showPaymentPopup.value;
 };
 
   
 </script>
   
-  
-  <style scoped>
+
+<style scoped>
   img{
       max-width: inherit;
   }
-
-  .fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-  </style>
+</style>

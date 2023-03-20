@@ -1,6 +1,9 @@
 <template>
-  <Spinner v-if="WineStore.spinner" />
-  <main v-else class="mb-20 mt-20">
+  <Spinner v-if="spinner" />
+  <main
+    v-else
+    class="mb-20 mt-20"
+  >
     <div>
       <select
         v-model="selectedCategory"
@@ -16,26 +19,26 @@
         </option>
       </select>
     </div>
-    <CatologueWines :catologueWineCards="filtredClothes"/>
+    <CatologueWines :catologue-wine-cards="filtredClothes" />
   </main>
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue';
+import { ref, onBeforeMount, computed } from 'vue';
 import CatologueWines from '../components/CatologueWines.vue';
 import { useWineStore } from '../stores/WineStore.js';
 import Spinner from '../components/Spinner.vue';
 
+
 const WineStore = useWineStore();
 const selectedCategory = ref('All');
-
-
+const spinner = ref(false);
 
 const filtredClothes = computed(()=>{
   if (selectedCategory.value === 'All'){
     return WineStore.allWines ;
   } else {
-    return WineStore.allWines.filter(product => !product.color.indexOf(selectedCategory.value))
+    return WineStore.allWines.filter(product => !product.color.indexOf(selectedCategory.value));
   }
 });
 
@@ -55,8 +58,19 @@ const categories = ref([
   }
 ]);
 
-onMounted(()=>{
-  WineStore.getWines();
+const loadingData = async ()=>{
+  try {
+    spinner.value = true;
+    await WineStore.getWines();
+  } catch (err){
+    console.log(err);
+  } finally {
+    spinner.value = false;
+  } 
+};
+
+onBeforeMount(()=>{
+  loadingData();
 });
 
 </script>

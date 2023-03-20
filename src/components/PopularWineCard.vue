@@ -21,7 +21,7 @@
 defineProps({
   popularWines: {
     type: Object,
-    default: ()=>{}
+    default: ()=>({})
   }
 });
 </script>

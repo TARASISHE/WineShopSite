@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center justify-center bg-[#dddddd] h-[270px] p-2 drop-shadow-2xl rounded-md hover:scale-105 ">
+  <div class="flex flex-col items-center justify-center bg-[#dddddd] h-[270px] p-2 drop-shadow-2xl rounded-md hover:scale-105">
     <img
       :src="(worker.img)"
       alt="Best Worker img"
@@ -19,7 +19,7 @@
 defineProps({
   worker: {
     type: Object,
-    default: ()=>{}
+    default: ()=>({})
   }
 });
 </script>

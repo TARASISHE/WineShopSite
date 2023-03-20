@@ -15,21 +15,35 @@
         </p>
       </div>
     </router-link>
-    <Button
+    <PrimaryButton
       btn-type="add"
-      @click="WineStore.addToCart(catologueWine)"
+      @click="addWineInCard(catologueWine)"
     >
       Add to cart
-    </Button>
+    </PrimaryButton>
   </div>
+  <Transition name="fade">
+    <Notification
+      v-if="notification"
+      class="absolute top-[80px] right-0"
+    >
+      <span class="text-[#32612d]">Add in cart</span> <font-awesome-icon
+        class="ml-2 text-[#32612d]"
+        icon="fa-solid fa-check"
+      />
+    </Notification>
+  </Transition>
 </template>
   
 <script setup>
 
+import Notification from './Notification.vue';
 import { useWineStore } from '../stores/WineStore';
-import Button from './Button.vue'; 
+import PrimaryButton from './PrimaryButton.vue'; 
+import { ref } from 'vue';
 
 const WineStore = useWineStore();
+const notification = ref(false);
 
 defineProps({
   catologueWine: {
@@ -37,6 +51,19 @@ defineProps({
     default: ()=>{}
   }
 });
+
+const addWineInCard = (item)=>{
+  WineStore.addToCart(item);
+  showAddedIteminCart();
+}; 
+
+
+const showAddedIteminCart = ()=>{
+  notification.value = true;
+  setTimeout(()=>{
+    notification.value = false;
+  }, 1000);
+};
 </script>
 
 

@@ -20,11 +20,11 @@ import SliderItem from './SliderItem.vue';
 const props = defineProps({
   carouselData: {
     type: Array,
-    default: ()=>[]
+    default: ()=>([])
   },
   interval: {
     type: Number,
-    default: ()=>0
+    default: ()=>(0)
   }
 });
 
@@ -55,10 +55,5 @@ const showNext = () =>{
 
 </script>
 
-<style scoped>
-.wrapper{
-  margin: 0 auto;
-}
-</style>
 
 

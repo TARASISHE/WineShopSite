@@ -72,7 +72,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+
 import { useDark, useToggle } from '@vueuse/core';
 import { useWineStore } from '../stores/WineStore.js';
 
@@ -81,7 +81,7 @@ const WineStore = useWineStore();
 const isDark = useDark({});
 const toggleDark = useToggle(isDark);
 
-const links = ref([
+const links = [
   {
     name: 'Catologue', to: '/catologue'
   },
@@ -91,6 +91,6 @@ const links = ref([
   {
     name: 'Cart', to: '/cart'
   }
-]);
+];
 
 </script>

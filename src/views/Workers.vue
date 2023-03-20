@@ -6,8 +6,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import axios from 'axios';
+import { ref, onBeforeMount } from 'vue';
+
+import { getWorkersData } from '../api/api';
 
 import WorkerList from '../components/WorkerList.vue';
 import Spinner from '../components/Spinner.vue';
@@ -18,9 +19,7 @@ const spinner = ref(false);
 const getWorkers = async ()=>{
   try {
     spinner.value = true;
-    const response = await axios.get('https://my-json-server.typicode.com/TARASISHE/allWineWorkers/allWorkersData');
-    const data = response.data;
-    allWorkers.value = data;
+    allWorkers.value = await getWorkersData();
   } catch (err){
     console.log(err);
   } finally {
@@ -28,7 +27,7 @@ const getWorkers = async ()=>{
   }
 };
 
-onMounted(()=>{
+onBeforeMount(()=>{
   getWorkers();
 });
 

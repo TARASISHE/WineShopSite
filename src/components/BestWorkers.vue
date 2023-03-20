@@ -25,7 +25,7 @@ import BestWorkerCard from './BestWorkerCard.vue';
 defineProps({
   bestWorkersData: {
     type: Array,
-    default: ()=>[]
+    default: ()=>([])
   }
 });
 </script>

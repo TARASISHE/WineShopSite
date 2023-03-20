@@ -6,12 +6,12 @@
     <div class="flex items-center justify-center gap-4 px-2 md:flex-col sm:flex-col xs:flex-col">
       <div class="relative w-[500px] sm:w-[375px] xs:w-[360px]">
         <YouTube 
-          ref="youtube" 
+          ref="youtubeVideo" 
           src="https://www.youtube.com/embed/z7_mScx-Waw?"
           style="width: 100%;"
           width="100%"
           height="300"
-          @ready="onReady"
+          @ready="playYouTubeVideo()"
         />
         <img
           v-if="banner"
@@ -47,22 +47,17 @@ import { ref } from 'vue';
 import YouTube from 'vue3-youtube';
 
 
-const youtube = ref(null);
+const youtubeVideo = ref(null);
 const banner = ref(true);
 
-const onReady = ()=>{
-  youtube.value.playVideo();
+const playYouTubeVideo = ()=>{
+  youtubeVideo.value.playVideo();
 };
 
 const hideBanner = () =>{
   banner.value = false;
-  onReady();
+  playYouTubeVideo();
 };
 </script>
 
-<style scoped>
-.wrapper{
-  margin: 0 auto;
-}
 
-</style>

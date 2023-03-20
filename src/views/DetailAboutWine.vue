@@ -2,9 +2,18 @@
   <Spinner v-if="spinner" />
   <main
     v-else
-    class="mt-20 "
+    class="mt-20"
   >
-    <div class="flex w-full items-center justify-center">
+    <Notification
+      v-if="failure"
+      class="absolute top-[70px] right-[15px] "
+    >
+      <span class="text-[#D0312D] font-bold">Error</span><font-awesome-icon
+        class="text-[#D0312D] ml-1 font-bold"
+        icon="fa-solid fa-circle-xmark"
+      />
+    </Notification>
+    <div class="flex w-full items-center justify-center relative">
       <div class="flex w-full items-center justify-center  sm:gap-2 xs:gap-2 sm:flex-col xs:flex-col">
         <div class="w-[40%] h-1/3 flex items-center justify-center sm:justify-center xs:justify-center sm:w-[300px] sm:h-full xs:w-[150px] xs:h-full">
           <img
@@ -40,13 +49,13 @@
             </p>
             <p class="text-end mt-5 flex flex-col justify-end items-end pr-4">
               <span class="font-semibold">Price:</span>  {{ wine.price }}₴
-              <Button
+              <PrimaryButton
                 btn-type="add"
                 class="dark:text-[#000] w-[300px] sm:w-[200px] xs:w-[175px]"
                 @click="WineStore.addToCart(wine)"
               >
                 Add to cart
-              </Button>
+              </PrimaryButton>
             </p>
           </div>
         </div>
@@ -61,42 +70,38 @@ import Spinner from '../components/Spinner.vue';
 import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useWineStore } from '../stores/WineStore.js';
-import Button from '../components/Button.vue';
+import PrimaryButton from '../components/PrimaryButton.vue';
+import axios from 'axios';
+import Notification from '../components/Notification.vue'
+
 
 const WineStore = useWineStore();
 
 const wine = ref({});
 const route = useRoute();
 const spinner = ref(false);
+const failure = ref(false);
 
 
-const loadInfoAboutMovie = async () =>{
+const loadInfoAboutWine = async () =>{
   try {
     spinner.value = true;
-    const resp = await fetch(
+    const response = await axios.get(
       `https://my-json-server.typicode.com/TARASISHE/winedb/allWines/${route.params.id}`
     );
-    const data = await resp.json();
+    const data = response.data;
     wine.value = data;
-    console.log( wine.value);
 
   } catch (error){
-    alert(`Error:${error}`);
+    failure.value = true;
   } finally {
     spinner.value = false;
   }
   
 };
-loadInfoAboutMovie();
+
+loadInfoAboutWine();
 
 </script>
 
 
-<style scoped>
-.wrapper{
-    margin: 0 auto;
-}
-.class{
-    width: fit-content;
-}
-</style>
