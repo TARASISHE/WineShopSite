@@ -1,13 +1,10 @@
 import axios from 'axios';
 
 const getWinesData = async () =>{
-  try {
-    const response = await axios.get('https://my-json-server.typicode.com/TARASISHE/winedb/allWines');
-    const data = await response.data;
-    return data;
-  } catch (error){
-    console.log(error);
-  }
+  const response = await axios.get('https://my-json-server.typicode.com/TARASISHE/winedb/allWines');
+  const data = await response.data;
+  return data;
+
 };
 
 const getWorkersData = async ()=>{
@@ -17,25 +14,17 @@ const getWorkersData = async ()=>{
 };
 
 const loadInfoAboutWineData = async (wineId) =>{
-  try {
-    const response = await axios.get(
-      `https://my-json-server.typicode.com/TARASISHE/winedb/allWines/${wineId}`
-    );
-    const data = await response.data;
-    return data;
-  } catch (error){
-    console.log(error);
-  }
+  const response = await axios.get(
+    `https://my-json-server.typicode.com/TARASISHE/winedb/allWines/${wineId}`
+  );
+  const data = await response.data;
+  return data;
 };
 
 const getBestWorkersData = async ()=>{
-  try {
-    const response = await axios.get('https://my-json-server.typicode.com/TARASISHE/wineWorkers/bestWorkersData');
-    const data = await response.data;
-    return data;
-  } catch (err){
-    console.log(err);
-  } 
+  const response = await axios.get('https://my-json-server.typicode.com/TARASISHE/wineWorkers/bestWorkersData');
+  const data = await response.data;
+  return data;
 };
 
 
