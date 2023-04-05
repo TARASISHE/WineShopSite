@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-import { ref, onBeforeMount, computed } from 'vue';
+import { ref, computed } from 'vue';
 import CatologueWines from '../components/CatologueWines.vue';
 import { useWineStore } from '../stores/WineStore.js';
 import Spinner from '../components/Spinner.vue';
@@ -58,6 +58,7 @@ const categories = ref([
   }
 ]);
 
+
 const loadingData = async ()=>{
   try {
     spinner.value = true;
@@ -69,8 +70,8 @@ const loadingData = async ()=>{
   } 
 };
 
-onBeforeMount(()=>{
-  loadingData();
-});
+
+loadingData();
+
 
 </script>

@@ -73,6 +73,7 @@ import { useWineStore } from '../stores/WineStore.js';
 import PrimaryButton from '../components/PrimaryButton.vue';
 import axios from 'axios';
 import Notification from '../components/Notification.vue'
+import { loadInfoAboutWineData } from '../api/api.js'
 
 
 const WineStore = useWineStore();
@@ -86,18 +87,12 @@ const failure = ref(false);
 const loadInfoAboutWine = async () =>{
   try {
     spinner.value = true;
-    const response = await axios.get(
-      `https://my-json-server.typicode.com/TARASISHE/winedb/allWines/${route.params.id}`
-    );
-    const data = response.data;
-    wine.value = data;
-
+    wine.value = await loadInfoAboutWineData(route.params.id);
   } catch (error){
     failure.value = true;
   } finally {
     spinner.value = false;
   }
-  
 };
 
 loadInfoAboutWine();

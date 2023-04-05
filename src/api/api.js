@@ -1,7 +1,4 @@
 import axios from 'axios';
-import { useRoute } from 'vue-router';
-
-const route = useRoute();
 
 const getWinesData = async () =>{
   try {
@@ -14,19 +11,15 @@ const getWinesData = async () =>{
 };
 
 const getWorkersData = async ()=>{
-  try {
-    const response = await axios.get('https://my-json-server.typicode.com/TARASISHE/allWineWorkers/allWorkersData');
-    const data = await response.data;
-    return data;
-  } catch (err){
-    console.log(err);
-  } 
+  const response = await axios.get('https://my-json-server.typicode.com/TARASISHE/allWineWorkers/allWorkersData');
+  const data = await response.data;
+  return data;
 };
 
-const loadInfoAboutWineData = async () =>{
+const loadInfoAboutWineData = async (wineId) =>{
   try {
     const response = await axios.get(
-      `https://my-json-server.typicode.com/TARASISHE/winedb/allWines/${route.params.id}`
+      `https://my-json-server.typicode.com/TARASISHE/winedb/allWines/${wineId}`
     );
     const data = await response.data;
     return data;
@@ -37,7 +30,7 @@ const loadInfoAboutWineData = async () =>{
 
 const getBestWorkersData = async ()=>{
   try {
-    const respresponse = await axios.get('https://my-json-server.typicode.com/TARASISHE/wineWorkers/bestWorkersData');
+    const response = await axios.get('https://my-json-server.typicode.com/TARASISHE/wineWorkers/bestWorkersData');
     const data = await response.data;
     return data;
   } catch (err){

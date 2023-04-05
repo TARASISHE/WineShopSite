@@ -10,15 +10,15 @@
     <AbouShop />
     <AboutGoods class="mt-4" />
     <InterestingGoods class="mt-4" />
-    <BestWorkers :best-workers-data="workersToShow" />
+    <BestWorkers :best-workers-data="bestWorkers" />
   </main>
 </template>
 
 <script setup>
-import { onBeforeMount, ref } from 'vue';
-import axios from 'axios';
+import { ref, onMounted } from 'vue';
 
-import { getBestWorkersData } from '../api/api';
+
+import useFetch from '../composables/useFetch';
 import BestWorkers from '../components/BestWorkers.vue';
 import InterestingGoods from '../components/InterestingGoods.vue';
 import AboutGoods from '../components/AboutGoods.vue';
@@ -48,15 +48,11 @@ const sliderItems = [
 ];
 
 
-const workersToShow = ref([]);
+const { data: bestWorkers, fetchData: fetchBestWorkers } = useFetch(
+  'https://my-json-server.typicode.com/TARASISHE/wineWorkers/bestWorkersData');
 
-const getWorkers = async () =>{
-  await getBestWorkersData()
-  workersToShow.value = getBestWorkersData;
-}
-
-onBeforeMount(()=>{
-  getWorkers();
+onMounted( async ()=>{
+  await fetchBestWorkers();
 });
 
 </script>

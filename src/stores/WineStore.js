@@ -2,7 +2,6 @@ import { ref, computed, watch } from 'vue';
 import { defineStore } from 'pinia';
 import { getWinesData } from '../api/api';
 
-
 export const useWineStore = defineStore('WineStore', () => {
   
   const cartWines = ref([]);
@@ -18,11 +17,7 @@ export const useWineStore = defineStore('WineStore', () => {
 
 
   const getWines = async () =>{
-    try {
-      allWines.value = await getWinesData();
-    } catch (err){
-      console.log(err);
-    } 
+    allWines.value = await getWinesData();
   };
 
   const addToCart = (item) => {
