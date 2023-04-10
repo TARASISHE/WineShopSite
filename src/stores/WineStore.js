@@ -11,6 +11,7 @@ export const useWineStore = defineStore('WineStore', () => {
     return cartWines.value.length;
   });
 
+
   const getCartWines = computed(()=>{
     return cartWines.value;
   });

@@ -33,6 +33,14 @@
       />
     </Notification>
   </Transition>
+  <Transition name="fade">
+    <Notification
+      v-if="notificationInCart"
+      class="absolute top-[80px] right-0"
+    >
+      <span class="text-[#32612d]">Already in Cart</span> 
+    </Notification>
+  </Transition>
 </template>
   
 <script setup>
@@ -44,6 +52,7 @@ import { ref } from 'vue';
 
 const WineStore = useWineStore();
 const notification = ref(false);
+const notificationInCart = ref(false);
 
 defineProps({
   catologueWine: {
@@ -53,17 +62,27 @@ defineProps({
 });
 
 const addWineInCard = (item)=>{
-  WineStore.addToCart(item);
-  showAddedIteminCart();
+  if (WineStore.cartWines.includes(item)){
+    notificationInCart.value = true;
+    setTimeout(()=>{
+      notificationInCart.value = false;
+    }, 1000);
+  } else { 
+    WineStore.addToCart(item);
+    notification.value = true;
+    setTimeout(()=>{
+      notification.value = false;
+    }, 1000);
+  }
 }; 
 
 
-const showAddedIteminCart = ()=>{
-  notification.value = true;
-  setTimeout(()=>{
-    notification.value = false;
-  }, 1000);
-};
+// const showAddedIteminCart = ()=>{
+//   notification.value = true;
+//   setTimeout(()=>{
+//     notification.value = false;
+//   }, 1000);
+// };
 </script>
 
 

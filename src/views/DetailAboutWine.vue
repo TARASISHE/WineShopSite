@@ -71,7 +71,6 @@ import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useWineStore } from '../stores/WineStore.js';
 import PrimaryButton from '../components/PrimaryButton.vue';
-import axios from 'axios';
 import Notification from '../components/Notification.vue'
 import { loadInfoAboutWineData } from '../api/api.js'
 
