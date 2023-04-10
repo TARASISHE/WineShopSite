@@ -50,6 +50,7 @@ export const useWineStore = defineStore('WineStore', () => {
 
   const removeFromCart = (item) =>{
     cartWines.value = cartWines.value .filter(product => product.id !== item.id);
+    localStorage.setItem('wines', JSON.stringify(cartWines.value));
   };
 
 
